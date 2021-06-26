@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Form for concert</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="container">
+    <div class="col-sm">
+      <h1 class="text-center">Concert Days</h1>
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Dates</th>
+            <th scope="col">Location</th>
+            <th scope="col">Times</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>June 28th, 2021</td>
+            <td>Seattle, WA</td>
+            <td>5:00PM-10:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>July 10th, 2021</td>
+            <td>Chicago Il</td>
+            <td>5:00PM-10:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>August 3rd, 2021</td>
+            <td>Miami, FL</td>
+            <td>6:00PM-11:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>July 20th, 2021</td>
+            <td>Atlanta, GA</td>
+            <td>5:00PM-10:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">5</th>
+            <td>August 20th, 2021</td>
+            <td>Dallas, TX</td>
+            <td>5:00PM-10:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">6</th>
+            <td>September 10th, 2021</td>
+            <td>Phoenix, AZ</td>
+            <td>6:00PM-11:00PM</td>
+          </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>September 20th, 2021</td>
+            <td>Los Angles, CA</td>
+            <td>6:00Pm-11:00PM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm">
+      <h2 class="text-center">Registration Form</h2>
+      <form action="/action_page.php" onsubmit="submitForm()">
+        <div class="row g-sm-5" style="padding-bottom: 20px">
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                name="firstName"
+                placeholder="firstName"
+                oninput="readName()"
+              />
+              <label for="firstName" class="form-label">Name:</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder="Last Name"
+                oninput="readLastName()"
+              />
+              <label for="lastName" class="form-label">Last Name:</label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-sm-5" style="padding-bottom: 20px">
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="Email:"
+                oninput="readEmail(event)"
+              />
+              <label for="email" class="form-label">Email:</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <input
+                type="tel"
+                class="form-control"
+                id="number"
+                placeholder="Phone Number"
+                oninput="readPhone(event)"
+              />
+              <label for="number" class="form-label">Phone Number:</label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-sm-5" style="padding-bottom: 20px">
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <select
+                class="form-control"
+                id="userOption"
+                aria-label="Floating label select example"
+                onchange="selectDate(event)"
+              >
+                <option selected>--Select--</option>
+                <option value="June 28th, 2021">June 28th, 2021</option>
+                <option value="July 10th, 2021">July 10th, 2021</option>
+                <option value="July 20th, 2021">July 20th, 2021</option>
+                <option value="August 3rd, 2021">August 3rd, 2021</option>
+                <option value="August 20th,2021">August 20th, 2021</option>
+                <option value="September 10th, 2021">
+                  September 10th, 2021
+                </option>
+                <option value="September 20th, 2021">
+                  September 20th, 2021
+                </option>
+              </select>
+              <label for="userOption" class="form-label">Date:</label>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-floating">
+              <select
+                class="form-control"
+                id="userQuantity"
+                aria-label="Floating label select example"
+                onchange="selectAmo(event)"
+              >
+                <option selected>--Select--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+              <label for="userQuantity" class="form-label"
+                >Number of tickets:</label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row g-sm-3">
+          <div class="col-md-12">
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                id="textArea"
+                placeholder="Leave a comment here"
+                style="height: 100px"
+                oninput="userCom(event)"
+              ></textarea>
+              <label for="textArea" class="form-label">Comments:</label>
+            </div>
+          </div>
+        </div>
+        <div class="row g-sm-3">
+          <div class="col-md-12">
+            <div class="submitButton">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="main.js"></script>
+  </body>
+</html>
